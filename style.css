@@ -1,0 +1,303 @@
+/* Custom styles for Whisper Me */
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* Dark theme variables */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #0d1117;
+    --bs-body-color: #c9d1d9;
+    --bs-border-color: #30363d;
+}
+
+/* Light theme variables */
+[data-bs-theme="light"] {
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #212529;
+    --bs-border-color: #dee2e6;
+}
+
+body {
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Card styling */
+.card {
+    border: 1px solid var(--bs-border-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: none;
+}
+
+/* Button styling */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    background: var(--primary-gradient);
+    filter: brightness(1.1);
+}
+
+.btn-success {
+    background: var(--success-gradient);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-success:hover {
+    background: var(--success-gradient);
+    filter: brightness(1.1);
+}
+
+/* Form styling */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid var(--bs-border-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* Progress bar styling */
+.progress {
+    border-radius: 10px;
+    height: 8px;
+}
+
+.progress-bar {
+    background: var(--primary-gradient);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Alert styling */
+.alert {
+    border-radius: 15px;
+    border: none;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+[data-bs-theme="dark"] .alert-success {
+    background: linear-gradient(135deg, #0f2419 0%, #1e3a2e 100%);
+    color: #75b798;
+}
+
+[data-bs-theme="dark"] .alert-danger {
+    background: linear-gradient(135deg, #2c0b0e 0%, #3d1a1e 100%);
+    color: #ea868f;
+}
+
+/* Mode selection styling */
+.btn-check:checked + .btn-outline-primary {
+    background: var(--primary-gradient);
+    border-color: transparent;
+}
+
+/* Character counter */
+#charCount {
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* File input styling */
+.form-control[type="file"] {
+    padding: 0.75rem;
+}
+
+.form-control[type="file"]::-webkit-file-upload-button {
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 15px;
+    border: 1px solid var(--bs-border-color);
+}
+
+.modal-header {
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+/* QR Code container */
+#qrcode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+#qrcode canvas {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Audio preview styling */
+#audioPreview {
+    border-radius: 10px;
+    background: var(--bs-body-bg);
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .card {
+        margin: 0 10px;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+}
+
+/* Animation for theme toggle */
+#themeToggle {
+    transition: all 0.3s ease;
+}
+
+#themeIcon {
+    transition: transform 0.3s ease;
+}
+
+#themeToggle:hover #themeIcon {
+    transform: rotate(180deg);
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Success animation */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-success {
+    animation: bounceIn 0.6s ease-out;
+}
+
+/* Error shake animation */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.animate-error {
+    animation: shake 0.6s ease-in-out;
+}
+
+/* Drag and drop styling */
+.drag-over {
+    border-color: #667eea !important;
+    background-color: rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-body-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    filter: brightness(1.2);
+}
