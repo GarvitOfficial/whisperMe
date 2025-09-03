@@ -2,7 +2,7 @@
 
 A fully local, open-source web application for hiding encrypted messages in audio files using seed-based key derivation (SHA-256) and LSB steganography. Messages are encrypted with XOR and embedded in generated audio, decryptable by anyone with the same seed.
 
- <h2>🚀 <strong><a href="https://xrpgarv.me/whisperMe/" target="_blank">✨ Try ReadmeForge Live ✨</a></strong></h2>
+ <h2>🚀 <strong><a href="https://xrpgarv.me/whisperMe/" target="_blank">✨ Try WhisperMe Now✨</a></strong></h2>
  
 ## ✨ Features
 
