@@ -194,7 +194,7 @@ class WhisperMe {
     }
 
     embedDataInAudio(audioBuffer, data) {
-        console.log('Embedding data in audio...');
+        // console.log('Embedding data in audio...');
         
         const channelData = audioBuffer.getChannelData(0);
         const dataBytes = data instanceof Uint8Array ? data : new Uint8Array(data);
@@ -252,13 +252,13 @@ class WhisperMe {
         
 
         
-        console.log(`Embedded ${dataBytes.length} bytes of data`);
+        // console.log(`Embedded ${dataBytes.length} bytes of data`);
         
         return audioBuffer;
     }
 
     extractDataFromAudio(audioBuffer) {
-        console.log('Extracting data from audio...');
+        // console.log('Extracting data from audio...');
         
         const channelData = audioBuffer.getChannelData(0);
         const len = channelData.length;
@@ -307,7 +307,7 @@ class WhisperMe {
             throw new Error('Magic header not found - corrupted or invalid audio file');
         }
         
-        console.log('Magic header found at sample', headerIndex);
+        // console.log('Magic header found at sample', headerIndex);
         let sampleIndex = headerIndex + 16; // Move past redundant magic header (8 bits * 2 redundancy)
         
         // Extract length header (32 bits, same as test script)
@@ -321,7 +321,7 @@ class WhisperMe {
             sampleIndex += 2;
         }
         
-        console.log('Data length:', dataLength);
+        // console.log('Data length:', dataLength);
         
         const remainingSamples = len - sampleIndex;
         if (dataLength <= 0 || dataLength > 1000000) { // Sanity check
@@ -349,7 +349,7 @@ class WhisperMe {
             dataBytes[i] = byte;
         }
         
-        console.log('Successfully extracted data');
+        // console.log('Successfully extracted data');
         return dataBytes;
     }
 
@@ -503,15 +503,15 @@ class WhisperMe {
             const decryptedMessage = this.xorDecrypt(encryptedData, key);
             this.showProgress('receiver', 100);
             
-            // Debug: Log intermediate values
-            console.log('Extracted data length:', encryptedData.length);
-            console.log('Decrypted message length:', decryptedMessage.length);
-            console.log('Decrypted message preview:', decryptedMessage.substring(0, 50));
+            // // Debug: Log intermediate values
+            // console.log('Extracted data length:', encryptedData.length);
+            // console.log('Decrypted message length:', decryptedMessage.length);
+            // console.log('Decrypted message preview:', decryptedMessage.substring(0, 50));
             
             this.showReceiverResult(decryptedMessage, true);
             
         } catch (error) {
-            console.error('Decryption error:', error);
+            // console.error('Decryption error:', error);
             this.showReceiverResult('Incorrect seed or invalid audio file. Please check your inputs and try again.', false);
             this.hideProgress('receiver');
         }
